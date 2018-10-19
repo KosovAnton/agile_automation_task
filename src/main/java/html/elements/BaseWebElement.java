@@ -10,7 +10,7 @@ import ru.yandex.qatools.htmlelements.matchers.WebElementMatchers;
 
 public class BaseWebElement extends HtmlElement {
 
-    protected final int DEFAULT_WAITING_TIMEOUT = 10;
+    protected final int DEFAULT_WAITING_TIMEOUT = 15;
 
     public BaseWebElement() {
         shouldBeDisplayed();
