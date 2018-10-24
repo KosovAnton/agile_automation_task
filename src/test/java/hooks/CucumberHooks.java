@@ -14,7 +14,6 @@ public class CucumberHooks {
     public void setUp(Scenario scenario) {
         try {
             //Driver.init();
-            //driver.navigate().to(GlobalValues.URL);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -29,14 +28,7 @@ public class CucumberHooks {
         }
 
         driver.quit();
-        try {
-            Set<String> windows = driver.getWindowHandles();
-            for (String window : windows){
-                driver.switchTo().window(window);
-                driver.close();
-            }
-        } catch (Exception e) { }
-        driver = null;*/
+        */
 
     }
 
