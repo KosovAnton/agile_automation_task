@@ -8,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -17,14 +16,12 @@ import static utils.GlobalValues.*;
 
 public class Driver {
 
-    private static RemoteWebDriver driver;
-
-    public static RemoteWebDriver init() {
+    public static void init() {
         URL location = Driver.class.getProtectionDomain().getCodeSource().getLocation();
         String mode = System.getProperty("mode");
         switch (browser) {
             case "internet explorer":
-                String tempIE = location.getFile().replace("target", "tools").replace("classes", "IEDriverServer.exe").substring(1, location.getFile().length() + 9);
+                String tempIE = location.getFile().replace("target", "webdriverbinaries").replace("classes", "IEDriverServer.exe").substring(1, location.getFile().length() + 21);
                 System.setProperty("webdriver.ie.driver", tempIE);
 
                 InternetExplorerOptions ieOptions = new InternetExplorerOptions();
@@ -51,9 +48,9 @@ public class Driver {
             case "fire fox":
                 String tempFF;
                 if (System.getProperties().getProperty("os.name").toLowerCase().contains("mac")) {
-                    tempFF = location.getFile().replace("target", "tools").replace("classes", "geckodriver");
+                    tempFF = location.getFile().replace("target", "webdriverbinaries").replace("classes", "geckodriver");
                 } else {
-                    tempFF = location.getFile().replace("target", "tools").replace("classes", "geckodriver.exe").substring(1, location.getFile().length() + 6);
+                    tempFF = location.getFile().replace("target", "webdriverbinaries").replace("classes", "geckodriver.exe").substring(1, location.getFile().length() + 18);
                 }
                 System.setProperty("webdriver.gecko.driver", tempFF);
 
@@ -75,11 +72,11 @@ public class Driver {
             case "chrome":
                 String tempCH;
                 if (System.getProperties().getProperty("os.name").toLowerCase().contains("mac")) {
-                    tempCH = location.getFile().replace("target", "tools").replace("classes", "chromedriver");
+                    tempCH = location.getFile().replace("target", "webdriverbinaries").replace("classes", "chromedriver");
                 } if (System.getProperties().getProperty("os.name").toLowerCase().contains("linux")){
-                    tempCH = location.getFile().replace("target", "tools").replace("classes", "chromedriver_lin");
+                    tempCH = location.getFile().replace("target", "webdriverbinaries").replace("classes", "chromedriver_lin");
                 } else {
-                    tempCH = location.getFile().replace("target", "tools").replace("classes", "chromedriver.exe").substring(1, location.getFile().length() + 7);
+                    tempCH = location.getFile().replace("target", "webdriverbinaries").replace("classes", "chromedriver.exe").substring(1, location.getFile().length() + 19);
                 }
                 System.setProperty("webdriver.chrome.driver", tempCH);
                 ChromeOptions options = new ChromeOptions();
@@ -99,6 +96,5 @@ public class Driver {
                 }
                 break;
         }
-        return driver;
     }
 }

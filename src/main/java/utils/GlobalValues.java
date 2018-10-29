@@ -1,6 +1,5 @@
 package utils;
 
-import driver.Driver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import javax.xml.bind.JAXBContext;
@@ -22,19 +21,18 @@ public class GlobalValues {
     static {
 
         if (System.getProperty("browser") != null) browser = System.getProperty("browser");
-        else browser = Configuration.getProps().getDriver();
+        else browser = Configuration.getProps().getBrowser();
         url = Configuration.getProps().getUrl();
-        driver = Driver.init();
 
         File file = new File("users.xml");
 
-        try {
+        /*try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Users.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             users = (Users) jaxbUnmarshaller.unmarshal(file);
         } catch (JAXBException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 

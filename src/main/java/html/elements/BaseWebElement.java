@@ -12,10 +12,6 @@ public class BaseWebElement extends HtmlElement {
 
     protected final int DEFAULT_WAITING_TIMEOUT = 15;
 
-    public BaseWebElement() {
-        shouldBeDisplayed();
-    }
-
     protected void shouldBeDisplayed(){
         assertThat("Element " + this.getName() + "was not displayed during " + DEFAULT_WAITING_TIMEOUT + "seconds",
                 this, should(WebElementMatchers.isDisplayed())

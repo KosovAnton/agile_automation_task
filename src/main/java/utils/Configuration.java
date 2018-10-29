@@ -12,8 +12,8 @@ public class Configuration {
     @Property("url")
     private String url;
 
-    @Property("driver")
-    private String driver;
+    @Property("browser")
+    private String browser;
 
     @Property("remoteDriverUrl")
     private String remoteDriverUrl;
@@ -34,8 +34,8 @@ public class Configuration {
         return url;
     }
 
-    public String getDriver() {
-        return driver;
+    public String getBrowser() {
+        return browser;
     }
 
     public String getRemoteDriverUrl() {

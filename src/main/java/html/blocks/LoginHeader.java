@@ -4,6 +4,7 @@ import html.elements.*;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
+import utils.User;
 
 @Name("Login header")
 @FindBy(xpath = ".//div[contains(@class,'loggedout_menubar')]")
@@ -22,9 +23,15 @@ public class LoginHeader extends HtmlElement {
     private Button logIn;
 
     public void logIn(String email, String password){
-        this.email.sendKeys(email);
-        this.password.sendKeys(password);
-        logIn.click();
+        fillEmailField(email);
+        fillPasswordField(password);
+        clickLogInButton();
+    }
+
+    public void logIn(User user){
+        fillEmailField(user.email);
+        fillPasswordField(user.password);
+        clickLogInButton();
     }
 
     public void fillEmailField(String text){
