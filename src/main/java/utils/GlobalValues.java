@@ -7,25 +7,31 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GlobalValues {
 
-    public static String URL;
-    public static String BROWSER;
-    public static Users USERS;
-    public static RemoteWebDriver DRIVER;
+    public static String browser;
+    public static RemoteWebDriver driver;
+    public static String url;
+    public static Users users;
+
+    public static Map<String, Object> valuesToBePassedBetweenSteps = new HashMap<>();
 
     static {
 
-        URL = Configuration.getProps().getUrl();
-        BROWSER = Configuration.getProps().getDriver();
+        if (System.getProperty("browser") != null) browser = System.getProperty("browser");
+        else browser = Configuration.getProps().getDriver();
+        url = Configuration.getProps().getUrl();
+        driver = Driver.init();
 
         File file = new File("users.xml");
 
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Users.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            USERS = (Users) jaxbUnmarshaller.unmarshal(file);
+            users = (Users) jaxbUnmarshaller.unmarshal(file);
         } catch (JAXBException e) {
             e.printStackTrace();
         }
