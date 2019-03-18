@@ -9,8 +9,8 @@ public class Configuration {
 
     private static Configuration props;
 
-    @Property("url")
-    private String url;
+    @Property("baseUrl")
+    private String baseUrl;
 
     @Property("browser")
     private String browser;
@@ -31,7 +31,7 @@ public class Configuration {
     }
 
     public String getUrl() {
-        return url;
+        return baseUrl;
     }
 
     public String getBrowser() {

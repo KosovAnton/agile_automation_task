@@ -10,7 +10,7 @@ import static utils.GlobalValues.*;
 public class BasePage extends HtmlElement {
 
     public BasePage() {
-        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
+        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(DRIVER)), this);
     }
 
 }

@@ -11,18 +11,18 @@ import java.util.Map;
 
 public class GlobalValues {
 
-    public static String browser;
-    public static RemoteWebDriver driver;
-    public static String url;
+    public static String BASE_URL;
+    public static String BROWSER;
+    public static RemoteWebDriver DRIVER;
     public static Users users;
 
     public static Map<String, Object> valuesToBePassedBetweenSteps = new HashMap<>();
 
     static {
 
-        if (System.getProperty("browser") != null) browser = System.getProperty("browser");
-        else browser = Configuration.getProps().getBrowser();
-        url = Configuration.getProps().getUrl();
+        if (System.getProperty("browser") != null) BROWSER = System.getProperty("browser");
+        else BROWSER = Configuration.getProps().getBrowser();
+        BASE_URL = Configuration.getProps().getUrl();
 
         File file = new File("users.xml");
 

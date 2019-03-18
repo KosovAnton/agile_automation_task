@@ -19,7 +19,7 @@ public class Driver {
     public static void init() {
         URL location = Driver.class.getProtectionDomain().getCodeSource().getLocation();
         String mode = System.getProperty("mode");
-        switch (browser) {
+        switch (BROWSER) {
             case "internet explorer":
                 String tempIE = location.getFile().replace("target", "webdriverbinaries").replace("classes", "IEDriverServer.exe").substring(1, location.getFile().length() + 21);
                 System.setProperty("webdriver.ie.driver", tempIE);
@@ -42,8 +42,8 @@ public class Driver {
                     e.printStackTrace();
                 }*/
 
-                driver = new InternetExplorerDriver(ieOptions);
-                driver.manage().window().setSize(new Dimension(1680,1050));
+                DRIVER = new InternetExplorerDriver(ieOptions);
+                DRIVER.manage().window().setSize(new Dimension(1680,1050));
                 break;
             case "fire fox":
                 String tempFF;
@@ -62,11 +62,11 @@ public class Driver {
                     cap.setHeadless(true);
                 }
                 cap.addPreference("security.sandbox.content.level", 5);
-                driver = new FirefoxDriver(cap);
+                DRIVER = new FirefoxDriver(cap);
                 if (System.getProperties().getProperty("os.name").toLowerCase().contains("mac")) {
-                    driver.manage().window().fullscreen();
+                    DRIVER.manage().window().fullscreen();
                 } else {
-                    driver.manage().window().setSize(new Dimension(1680, 1050));
+                    DRIVER.manage().window().setSize(new Dimension(1680, 1050));
                 }
                 break;
             case "chrome":
@@ -86,13 +86,13 @@ public class Driver {
                     options.addArguments("--no-sandbox");
                     options.addArguments("--window-size=1680,1050");
                 }
-                driver = new ChromeDriver(options);
+                DRIVER = new ChromeDriver(options);
                 if (System.getProperties().getProperty("os.name").toLowerCase().contains("mac")) {
-                    driver.manage().window().fullscreen();
+                    DRIVER.manage().window().fullscreen();
                 } if (System.getProperties().getProperty("os.name").toLowerCase().contains("linux")){
-                driver.manage().window().setSize(new Dimension(1680,1050));
+                DRIVER.manage().window().setSize(new Dimension(1680,1050));
                 } else {
-                    driver.manage().window().setSize(new Dimension(1680, 1050));
+                DRIVER.manage().window().setSize(new Dimension(1680, 1050));
                 }
                 break;
         }

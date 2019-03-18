@@ -23,12 +23,12 @@ public class CucumberHooks {
     @After
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
-            final byte[] screenshot = ((TakesScreenshot) driver)
+            final byte[] screenshot = ((TakesScreenshot) DRIVER)
                     .getScreenshotAs(OutputType.BYTES);
             scenario.embed(screenshot, "image/png");
         }
 
-        driver.quit();
+        DRIVER.quit();
 
     }
 

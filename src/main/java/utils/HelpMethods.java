@@ -41,7 +41,7 @@ public class HelpMethods {
         int multiplier = 1;
         try {
             while (true) {
-                if (jQueryLoad.apply(driver) && jsLoad.apply(driver)) {
+                if (jQueryLoad.apply(DRIVER) && jsLoad.apply(DRIVER)) {
                     return;
                 } else {
                     counter++;
@@ -59,7 +59,7 @@ public class HelpMethods {
     }
 
     public static BufferedImage captureElementScreenshot(WebElement element) throws IOException {
-        byte[] screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        byte[] screen = ((TakesScreenshot) DRIVER).getScreenshotAs(OutputType.BYTES);
         InputStream targetStream = new ByteArrayInputStream(screen);
         BufferedImage img = ImageIO.read(targetStream);
         int width = element.getSize().getWidth();
