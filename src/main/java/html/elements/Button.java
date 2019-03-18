@@ -1,4 +1,4 @@
 package html.elements;
 
-public class Button extends BaseWebElement {
+public class Button extends BaseWebElement<Button> {
 }

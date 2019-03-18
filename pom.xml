@@ -160,14 +160,11 @@
             <version>1.18</version>
         </dependency>
         <dependency>
-            <!-- This library provides convinient way to work with properties.
-            It can handle property-files on hard drive, in classpath or get values from system properties -->
             <groupId>ru.yandex.qatools.properties</groupId>
             <artifactId>properties-loader</artifactId>
             <version>1.6</version>
         </dependency>
         <dependency>
-            <!-- Utility library to create customized screenshots using Selenium WebDriver and Java AWT -->
             <groupId>com.assertthat</groupId>
             <artifactId>selenium-shutterbug</artifactId>
             <version>0.9</version>

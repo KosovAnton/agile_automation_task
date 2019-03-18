@@ -8,13 +8,14 @@ import static ru.yandex.qatools.htmlelements.matchers.decorators.TimeoutWaiter.t
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.matchers.WebElementMatchers;
 
-public class BaseWebElement extends HtmlElement {
+public class BaseWebElement<T> extends HtmlElement {
 
     protected final int DEFAULT_WAITING_TIMEOUT = 15;
 
-    protected void shouldBeDisplayed(){
-        assertThat("Element " + this.getName() + "was not displayed during " + DEFAULT_WAITING_TIMEOUT + "seconds",
+    public T shouldBeDisplayed(){
+        assertThat("Element " + this.getName() + " was not displayed during " + DEFAULT_WAITING_TIMEOUT + "seconds",
                 this, should(WebElementMatchers.isDisplayed())
                         .whileWaitingUntil(timeoutHasExpired(SECONDS.toMillis(DEFAULT_WAITING_TIMEOUT))));
+        return (T) this;
     }
 }
