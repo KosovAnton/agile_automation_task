@@ -7,7 +7,7 @@ import static utils.GlobalValues.DRIVER;
 
 public class LoginPage extends BasePage {
 
-    private final String URL = BASE_URL + "login";
+    private final String URL = BASE_URL + "/login";
 
     private LoginBlock loginBlock;
 
