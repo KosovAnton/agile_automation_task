@@ -3,7 +3,7 @@ package stepdefinitions;
 import cucumber.api.java.en.Given;
 import html.pages.LoginPage;
 
-public class LoginStepDefinitions {
+public class LoginStepdefs {
 
     LoginPage loginPage = new LoginPage();
 
