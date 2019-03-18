@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
-@Name("Login header")
-@FindBy(xpath = ".//div[contains(@class,'loggedout_menubar')]")
-public class LoginHeader extends HtmlElement {
+@Name("Login block")
+@FindBy(xpath = ".//div[@id='header_block']/parent::div")
+public class LoginBlock extends HtmlElement {
 
     @Name("Email")
     @FindBy(id = "email")
@@ -18,22 +18,22 @@ public class LoginHeader extends HtmlElement {
     private Input password;
 
     @Name("'Log in' button")
-    @FindBy(id = "pass")
+    @FindBy(id = "loginbutton")
     private Button logIn;
 
-    public LoginHeader fillEmailField(String text) {
+    public LoginBlock fillEmailField(String text) {
         email.shouldBeDisplayed()
                 .sendKeys(text);
         return this;
     }
 
-    public LoginHeader fillPasswordField(String text) {
+    public LoginBlock fillPasswordField(String text) {
         password.shouldBeDisplayed()
                 .sendKeys(text);
         return this;
     }
 
-    public LoginHeader clickLogInButton() {
+    public LoginBlock clickLogInButton() {
         logIn.shouldBeDisplayed()
                 .click();
         return this;
