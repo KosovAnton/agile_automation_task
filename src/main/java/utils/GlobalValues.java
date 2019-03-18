@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class GlobalValues {
 
+    public static int DEFAULT_WAITING_TIMEOUT = 15;
     public static String BASE_URL;
     public static String BROWSER;
     public static RemoteWebDriver DRIVER;
