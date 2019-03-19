@@ -12,13 +12,13 @@ public class ProfilePage extends BasePage {
     private EditMessagePopup editMessagePopup;
     private List<PostedMessage> posts;
 
-    public void postMessage(String text){
+    public void postMessage(String text) {
         postMessagePopup.open()
                 .fillTextbox(text)
                 .clickSubmitButton();
     }
 
-    public void updateMessage(String currentText, String newText){
+    public void updateMessage(String currentText, String newText) {
         posts.stream().filter(post -> post.getPostedText().contains(currentText)).findFirst().get()
                 .openOptionsMenu()
                 .selectEditOption();
@@ -26,7 +26,7 @@ public class ProfilePage extends BasePage {
                 .clickSubmitButton();
     }
 
-    public void deleteMessage(String messageText){
+    public void deleteMessage(String messageText) {
 
     }
 

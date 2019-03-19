@@ -7,7 +7,7 @@ import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 @Name("Edit message popup")
-@FindBy(id = "rc.u_2e_0")
+@FindBy(xpath = ".//div[@role='dialog']//div[@data-testid='react-composer-root']")
 public class EditMessagePopup extends HtmlElement {
 
     @Name("Textbox")

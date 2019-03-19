@@ -18,4 +18,11 @@ public class BaseWebElement<T> extends HtmlElement {
         return (T) this;
     }
 
+    public T shouldDisappear() {
+        assertThat("Element " + this.getName() + " was displayed during " + DEFAULT_WAITING_TIMEOUT + "seconds",
+                this, should(WebElementMatchers.isDisplayed())
+                        .whileWaitingUntil(timeoutHasExpired(SECONDS.toMillis(DEFAULT_WAITING_TIMEOUT))));
+        return (T) this;
+    }
+
 }

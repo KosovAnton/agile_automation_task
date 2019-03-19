@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import utils.GlobalValues;
+import utils.JsUtils;
 
 import java.util.List;
 
