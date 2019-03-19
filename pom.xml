@@ -10,7 +10,7 @@
 
     <properties>
         <version.cucumber>1.2.5</version.cucumber>
-        <fork.count>5</fork.count>
+        <fork.count>1</fork.count>
         <compiler.version>1.8</compiler.version>
     </properties>
 
@@ -32,7 +32,7 @@
                                 <package>stepdefinitions</package>
                                 <package>hooks</package>
                             </glue>
-                            <tags>@RegressionOnStaging</tags>
+                            <tags>@PostsCrud</tags>
                             <outputDirectory>target/generated-test-sources/cucumber</outputDirectory>
                             <featuresDirectory>src/test/resources/features/</featuresDirectory>
                             <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
@@ -89,11 +89,6 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>ru.yandex.qatools.properties</groupId>
-            <artifactId>properties-loader</artifactId>
-            <version>1.5</version>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
@@ -122,11 +117,6 @@
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>${version.cucumber}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>23.0</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
