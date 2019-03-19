@@ -1,5 +1,6 @@
 package html.pages;
 
+import html.blocks.DeleteMessagePopup;
 import html.blocks.EditMessagePopup;
 import html.blocks.PostMessagePopup;
 import html.blocks.PostedMessage;
@@ -10,24 +11,33 @@ public class ProfilePage extends BasePage {
 
     private PostMessagePopup postMessagePopup;
     private EditMessagePopup editMessagePopup;
+    private DeleteMessagePopup deleteMessagePopup;
     private List<PostedMessage> posts;
 
-    public void postMessage(String text) {
+    public List<PostedMessage> createPost(String postText) {
         postMessagePopup.open()
-                .fillTextbox(text)
+                .fillTextbox(postText)
                 .clickSubmitButton();
+        return posts;
     }
 
-    public void updateMessage(String currentText, String newText) {
-        posts.stream().filter(post -> post.getPostedText().contains(currentText)).findFirst().get()
+    public List<PostedMessage> updatePost(String currentText, String newText) {
+        posts.stream().filter(post -> post.getPostedText().equals(currentText)).findFirst().get()
                 .openOptionsMenu()
                 .selectEditOption();
-        editMessagePopup.fillTextbox(newText)
-                .clickSubmitButton();
+        editMessagePopup.uppendText(newText)
+                .clickSubmitButton()
+                .shouldNotBeDisplayed();
+        return posts;
     }
 
-    public void deleteMessage(String messageText) {
-
+    public List<PostedMessage> deletePost(String postText) {
+        posts.stream().filter(post -> post.getPostedText().equals(postText)).findFirst().get()
+                .openOptionsMenu()
+                .selectDeleteOption();
+        deleteMessagePopup.clickSubmitButton()
+                .shouldNotBeDisplayed();
+        return posts;
     }
 
 }

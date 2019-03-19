@@ -1,15 +1,15 @@
 package html.blocks;
 
+import html.elements.BaseWebElement;
 import html.elements.Button;
 import html.elements.Input;
 import html.elements.Link;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
-import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 @Name("Post message popup")
 @FindBy(id = "pagelet_timeline_composer")
-public class PostMessagePopup extends HtmlElement {
+public class PostMessagePopup extends BaseWebElement<PostMessagePopup> {
 
     @Name("Create publication")
     @FindBy(xpath = ".//a[contains(@class,'STATUS')]")
@@ -33,6 +33,7 @@ public class PostMessagePopup extends HtmlElement {
     public PostMessagePopup clickSubmitButton() {
         submit.shouldBeDisplayed()
                 .click();
+        submit.shouldNotBeDisplayed();
         return this;
     }
 

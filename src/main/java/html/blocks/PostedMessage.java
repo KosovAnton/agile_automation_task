@@ -1,23 +1,10 @@
 package html.blocks;
 
 import html.elements.Button;
-import html.elements.Input;
-import html.elements.Link;
 import html.elements.Text;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
-import utils.GlobalValues;
-import utils.JsUtils;
-
-import java.util.List;
-
-import static java.util.concurrent.TimeUnit.SECONDS;
-import static utils.GlobalValues.DEFAULT_WAITING_TIMEOUT;
-import static utils.GlobalValues.DRIVER;
 
 @Name("Posted message")
 @FindBy(xpath = ".//div[contains(@id,'timeline_story_container')]//div[@role='article']")
