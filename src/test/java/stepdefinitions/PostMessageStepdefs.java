@@ -23,7 +23,7 @@ public class PostMessageStepdefs {
     @When("^User updates post \"([^\"]*)\" with text \"([^\"]*)\"$")
     public void userUpdatesPostWithText(String currentText, String newText) {
         List<PostedMessage> actualPosts = profilePage.updatePost(currentText, newText);
-        assertTrue("", actualPosts.stream().anyMatch(post -> post.getPostedText().equals(currentText + " " + newText)));
+        assertTrue("", actualPosts.stream().anyMatch(post -> post.getPostedText().equals(currentText + newText)));
     }
 
     @Then("^User deletes post with text message \"([^\"]*)\"$")
