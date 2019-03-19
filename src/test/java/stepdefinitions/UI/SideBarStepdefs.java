@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.UI;
 
 import cucumber.api.java.en.And;
 import html.pages.HomePage;
