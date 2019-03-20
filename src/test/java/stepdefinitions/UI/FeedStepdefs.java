@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class PostMessageStepdefs {
+public class FeedStepdefs {
 
     ProfilePage profilePage = new ProfilePage();
 
