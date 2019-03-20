@@ -1,24 +1,31 @@
 package stepdefinitions.API;
 
+import com.jayway.restassured.builder.RequestSpecBuilder;
+import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.response.ValidatableResponse;
 import com.jayway.restassured.specification.RequestSpecification;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import utils.GlobalValues;
 
 public class FeedStepdefs {
+
+    RequestSpecification requestSpec = new RequestSpecBuilder()
+            .setBaseUri(GlobalValues.GRAPH_FB_BASE_URL)
+            .setAccept(ContentType.JSON)
+            .setContentType(ContentType.ANY)
+            .addHeader("", "Bearer " + GlobalValues.GRAPH_FB_PAGE_ACCESS_TOKEN)
+            .build();
 
     private String pageId = "833491486991881";
     private Response response;
     private ValidatableResponse json;
     private RequestSpecification request;
 
-    private static String PageAccessToken = "EAAL2DlwBZAgkBACnZAwXpZC03cVM5BR8xPJI2RX0XZAGsZC7fpBoxTMQRrJqq1dJbRrTF7ZAofAMFiASTpMJi22sg0HVSQ6PIKaHuYjDGCOy8gnm1mTBqZCj8P6yfhZC8ZC1Eozj6WsXjSPLu9WzL4KfJPj3eyxZB7mSDQy0gZBBm6RUnZCZBN0PhZBa9LHnWDZBT6esufo0UVhjCXjuQZDZD";
     private static String UserEmail = "open_eitdzfw_user@tfbnw.net";
     private static String UserPassword = "testuser123";
-    private static String GraphBaseUrl = "https://graph.facebook.com/";
-    private static String GraphVersion = "v3.2";
 
     @Given("^API User sends request to create post with message \"([^\"]*)\"$")
     public void apiUserSendsRequestToCreatePostWithMessage(String text) throws Throwable {
