@@ -1,10 +1,11 @@
 package stepdefinitions.API;
 
+import com.jayway.restassured.response.Response;
 import com.jayway.restassured.response.ValidatableResponse;
 import com.jayway.restassured.specification.RequestSpecification;
-import com.jayway.restassured.response.Response;
-import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 
 public class FeedStepdefs {
 
@@ -19,9 +20,27 @@ public class FeedStepdefs {
     private static String GraphBaseUrl = "https://graph.facebook.com/";
     private static String GraphVersion = "v3.2";
 
-    @Given("^API User$")
-    public void apiUser() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Given("^API User sends request to create post with message \"([^\"]*)\"$")
+    public void apiUserSendsRequestToCreatePostWithMessage(String text) throws Throwable {
+    }
+
+    @And("^API User receives response with status code \"([^\"]*)\"$")
+    public void apiUserReceivesResponseWithStatusCode(String code) throws Throwable {
+    }
+
+    @Then("^API User verifies that feed contains post with message \"([^\"]*)\"$")
+    public void apiUserVerifiesThatFeedContainsPostWithMessage(String arg0) throws Throwable {
+    }
+
+    @Given("^API User sends request to update post message \"([^\"]*)\" with text \"([^\"]*)\"$")
+    public void apiUserSendsRequestToUpdatePostMessageWithText(String currentText, String newText) throws Throwable {
+    }
+
+    @Given("^API User sends request to delete post with message \"([^\"]*)\"$")
+    public void apiUserSendsRequestToDeletePostWithMessage(String text) throws Throwable {
+    }
+
+    @Then("^API User verifies that feed does not contain post with message \"([^\"]*)\"$")
+    public void apiUserVerifiesThatFeedDoesNotContainPostWithMessage(String text) throws Throwable {
     }
 }

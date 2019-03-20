@@ -3,25 +3,19 @@ Feature: User verifies create, update and delete post functionality on API side
 
   @ApiCreatePost
   Scenario: create new post
-    Given API User
-    And User opens profile page
-    And User creates post with text "just delete"
-    When User updates post "just delete" with text " this message"
-    Then User deletes post with text message "just delete this message"
+    Given API User sends request to create post with message "to update"
+    And API User receives response with status code "200"
+    Then API User verifies that feed contains post with message "to update"
 
   @ApiUpdatePost
   Scenario: update post
-    Given User logs in with credentials "casey_jones123@mail-pro.info"/"CaseyJones123"
-    And User opens profile page
-    And User creates post with text "just delete"
-    When User updates post "just delete" with text " this message"
-    Then User deletes post with text message "just delete this message"
+    Given API User sends request to update post message "to update" with text "was updated"
+    And API User receives response with status code "200"
+    Then API User verifies that feed contains post with message "was updated"
 
   @ApiDeletePost
   Scenario: delete post
-    Given User logs in with credentials "casey_jones123@mail-pro.info"/"CaseyJones123"
-    And User opens profile page
-    And User creates post with text "just delete"
-    When User updates post "just delete" with text " this message"
-    Then User deletes post with text message "just delete this message"
+    Given API User sends request to delete post with message "was updated"
+    And API User receives response with status code "200"
+    Then API User verifies that feed does not contain post with message "was updated"
 
