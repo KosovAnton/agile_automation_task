@@ -22,11 +22,11 @@ public class ApiSteps {
             .addHeader("Authorization", "Bearer " + GlobalValues.GRAPH_FB_PAGE_ACCESS_TOKEN)
             .build();
 
-    public static ValidatableResponse createPost(String text){
+    public static ValidatableResponse createPost(String message){
         return given()
                 .spec(requestSpecification)
                 .when()
-                .queryParam(MESSAGE, text)
+                .queryParam(MESSAGE, message)
                 .post(EndPoints.USER_FEED, "me")
                 .then();
     }
@@ -37,6 +37,14 @@ public class ApiSteps {
                 .when()
                 .queryParam(MESSAGE, newMessage)
                 .post(EndPoints.FEED_POST, getPostByMessage(currentMessage, getUserFeed()).getId())
+                .then();
+    }
+
+    public static ValidatableResponse deletePost(String message){
+        return given()
+                .spec(requestSpecification)
+                .when()
+                .delete(EndPoints.FEED_POST, getPostByMessage(message, getUserFeed()).getId())
                 .then();
     }
 
