@@ -1,4 +1,4 @@
-@ApiScenarios
+@API @ApiPostCrudScenarios
 Feature: User verifies create, update and delete post functionality on API side
 
   @ApiCreatePost

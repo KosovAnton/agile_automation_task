@@ -1,53 +1,53 @@
 package stepdefinitions.API;
 
-import com.jayway.restassured.builder.RequestSpecBuilder;
-import com.jayway.restassured.http.ContentType;
-import com.jayway.restassured.response.Response;
-import com.jayway.restassured.response.ValidatableResponse;
-import com.jayway.restassured.specification.RequestSpecification;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import utils.GlobalValues;
+import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSpecification;
+import models.Post;
+import org.junit.Assert;
+
+import java.util.List;
+
+import static http.ApiSteps.*;
 
 public class FeedStepdefs {
 
-    RequestSpecification requestSpec = new RequestSpecBuilder()
-            .setBaseUri(GlobalValues.GRAPH_FB_BASE_URL)
-            .setAccept(ContentType.JSON)
-            .setContentType(ContentType.ANY)
-            .addHeader("", "Bearer " + GlobalValues.GRAPH_FB_PAGE_ACCESS_TOKEN)
-            .build();
-
-    private String pageId = "833491486991881";
-    private Response response;
-    private ValidatableResponse json;
+    private ValidatableResponse response;
     private RequestSpecification request;
-
-    private static String UserEmail = "open_eitdzfw_user@tfbnw.net";
-    private static String UserPassword = "testuser123";
+    private String postId;
+    private List<Post> feed;
 
     @Given("^API User sends request to create post with message \"([^\"]*)\"$")
-    public void apiUserSendsRequestToCreatePostWithMessage(String text) throws Throwable {
+    public void apiUserSendsRequestToCreatePostWithMessage(String text) {
+        response = createPost(text);
     }
 
     @And("^API User receives response with status code \"([^\"]*)\"$")
-    public void apiUserReceivesResponseWithStatusCode(String code) throws Throwable {
+    public void apiUserReceivesResponseWithStatusCode(int code) {
+        response.statusCode(code);
+        postId = response.extract()
+                .path("id");
     }
 
     @Then("^API User verifies that feed contains post with message \"([^\"]*)\"$")
-    public void apiUserVerifiesThatFeedContainsPostWithMessage(String arg0) throws Throwable {
+    public void apiUserVerifiesThatFeedContainsPostWithMessage(String text) {
+        Assert.assertTrue("User feed does not contain post with message: '" + text + "', and id: " + postId,
+                getUserFeed().stream().anyMatch(post -> post.getMessage().equals(text) && post.getId().equals(postId)));
     }
 
     @Given("^API User sends request to update post message \"([^\"]*)\" with text \"([^\"]*)\"$")
-    public void apiUserSendsRequestToUpdatePostMessageWithText(String currentText, String newText) throws Throwable {
+    public void apiUserSendsRequestToUpdatePostMessageWithText(String currentText, String newText) {
+        updatePost(currentText, newText)
+                .body("success", equalTo(true));
     }
 
     @Given("^API User sends request to delete post with message \"([^\"]*)\"$")
-    public void apiUserSendsRequestToDeletePostWithMessage(String text) throws Throwable {
+    public void apiUserSendsRequestToDeletePostWithMessage(String text) {
     }
 
     @Then("^API User verifies that feed does not contain post with message \"([^\"]*)\"$")
-    public void apiUserVerifiesThatFeedDoesNotContainPostWithMessage(String text) throws Throwable {
+    public void apiUserVerifiesThatFeedDoesNotContainPostWithMessage(String text) {
     }
 }

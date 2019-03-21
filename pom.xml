@@ -134,25 +134,9 @@
             <version>1.9.13</version>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.20</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-maven-plugin</artifactId>
-            <version>1.16.0.0</version>
-        </dependency>
-        <dependency>
             <groupId>ru.yandex.qatools.htmlelements</groupId>
             <artifactId>htmlelements-all</artifactId>
             <version>1.18</version>
-        </dependency>
-        <dependency>
-            <groupId>ru.yandex.qatools.properties</groupId>
-            <artifactId>properties-loader</artifactId>
-            <version>1.6</version>
         </dependency>
         <dependency>
             <groupId>com.assertthat</groupId>
@@ -160,17 +144,10 @@
             <version>0.9</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.7</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jayway.restassured</groupId>
+            <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>2.9.0</version>
-            <scope>test</scope>
+            <version>3.3.0</version>
         </dependency>
-
     </dependencies>
 
 </project>

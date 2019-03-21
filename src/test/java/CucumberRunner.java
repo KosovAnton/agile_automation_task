@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         format = {"pretty", "json:target/cucumber-report.json", "junit:target/cucumber-junit-report/cuc.xml"},
         glue = {"stepdefinitions", "hooks"},
         features = {"src/test/resources"},
-        tags = {"@UiCreatePost"}
+        tags = {"@ApiCreatePost"}
 )
 public class CucumberRunner {
 }
