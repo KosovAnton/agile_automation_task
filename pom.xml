@@ -32,7 +32,7 @@
                                 <package>stepdefinitions</package>
                                 <package>hooks</package>
                             </glue>
-                            <tags>@UiCreatePost</tags>
+                            <tags>@FullRegression</tags>
                             <outputDirectory>target/generated-test-sources/cucumber</outputDirectory>
                             <featuresDirectory>src/test/resources/features/</featuresDirectory>
                             <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>

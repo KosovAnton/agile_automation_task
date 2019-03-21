@@ -1,4 +1,4 @@
-@UiScenarios
+@UiScenarios @FullRegression
 Feature: User verifies create, update and delete post functionality on UI side
 
   @UiCreatePost

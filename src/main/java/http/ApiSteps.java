@@ -22,7 +22,7 @@ public class ApiSteps {
             .addHeader("Authorization", "Bearer " + GlobalValues.GRAPH_FB_PAGE_ACCESS_TOKEN)
             .build();
 
-    public static ValidatableResponse createPost(String message){
+    public static ValidatableResponse createPost(String message) {
         return given()
                 .spec(requestSpecification)
                 .when()
@@ -31,7 +31,7 @@ public class ApiSteps {
                 .then();
     }
 
-    public static ValidatableResponse updatePost(String currentMessage, String newMessage){
+    public static ValidatableResponse updatePost(String currentMessage, String newMessage) {
         return given()
                 .spec(requestSpecification)
                 .when()
@@ -40,7 +40,7 @@ public class ApiSteps {
                 .then();
     }
 
-    public static ValidatableResponse deletePost(String message){
+    public static ValidatableResponse deletePost(String message) {
         return given()
                 .spec(requestSpecification)
                 .when()
@@ -48,7 +48,7 @@ public class ApiSteps {
                 .then();
     }
 
-    public static List<Post> getUserFeed(){
+    public static List<Post> getUserFeed() {
         return given().spec(requestSpecification)
                 .when()
                 .get(EndPoints.USER_FEED, "me")
@@ -56,7 +56,8 @@ public class ApiSteps {
                 .getData();
     }
 
-    public static Post getPostByMessage(String message, List<Post> feed){
-        return feed.stream().filter(post -> post.getMessage().equals(message)).findFirst().get();
+    public static Post getPostByMessage(String message, List<Post> feed) {
+        return feed.stream().filter(post -> post.getMessage().equals(message)).findFirst()
+                .orElseThrow(() -> new java.lang.AssertionError("User feed does not contain message: '" + message + "'"));
     }
 }

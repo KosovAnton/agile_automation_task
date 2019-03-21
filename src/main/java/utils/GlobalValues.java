@@ -9,7 +9,7 @@ public class GlobalValues {
 
     public final static String GRAPH_FB_BASE_URL = "https://graph.facebook.com/v3.2";
     public final static String GRAPH_FB_PAGE_ACCESS_TOKEN =
-            "EAAKtMMcs3S4BAEPkWDCJ3u57vTrpZC0ZB5LvpHMEgeGus4P3EEZAUci4vNqmSNtNCGwDaNnRXQeJ51Ac6UpaRMJZAZCJgg8Bq5REpVJQtoI6VXHuYmThaJ7O8fcXt8nsenpyy5fY4Rbh9IZCEg3BH4XrxN9cFiZBCIbAWMwn4jj8bxig5hUKmL4wRFQZClniHYHivnkSRFEzYwZDZD";
+            "EAAKtMMcs3S4BAKql0ApJKJuV3ZAjWYoNq3uNU5NKDWXBzeXKjqlsr5USXlued3gpSENDbZAE0frPRJZAT0PyqERygiAZBRWoAk1H5ZASaKF1u8EkbRqBcJSmAzfLECHARkOxdO8aiQZAYkFSmQiIpZBlw9ZCnPqfoyJjqEXc7v5YZBewLvh53ech91hQsDF3PdZCrojaqdXT6xWgZDZD";
 
     public static RemoteWebDriver DRIVER;
     public static int DEFAULT_WAITING_TIMEOUT = 10;
